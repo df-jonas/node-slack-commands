@@ -1,15 +1,15 @@
 'use strict';
 
-const APFactory = require('./lib/factories.js').ArgumentParserFactory;
+const ArgumentParserFactory = require('./lib/factories.js').ArgumentParserFactory;
 const PropertiesReader = require('properties-reader');
 
 const prop = PropertiesReader('.properties');
 
-const parser = new APFactory().create()
+const parser = new ArgumentParserFactory().create()
 
     .addSubparsers({title: 'Possible commands',})
 
-    .addSubparser('clean', {dest: 'clean', help: 'Slack subcommand for cleaning', addHelp: true})
+    .addSubparser('clean', {dest: 'clean', help: 'Clean channels', addHelp: true})
 
     .addArgument(['-c', '--channel'], {
         help: 'ID of the Slack channel', metavar: 'CHANNEL_ID', required: true
@@ -25,7 +25,7 @@ const parser = new APFactory().create()
         help: 'Enable if channel is private', metavar: 'BOOLEAN'
     })
 
-    .and().addSubparser('send', {help: 'Slack subcommand for sending', addHelp: true})
+    .and().addSubparser('send', {help: 'Send messages', addHelp: true})
 
     .build();
 

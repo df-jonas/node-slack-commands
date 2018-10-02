@@ -54,5 +54,5 @@ Examples:
 
 > node slack-messages clean --channel AABBCCDD --user WWXXYYZZ --staging true
 
-> node slack-messages clean --channel AABBCCDD --user WWXXYYZZ -- private true --staging true
+> node slack-messages clean --channel AABBCCDD --user WWXXYYZZ --private true --staging true
 ```
